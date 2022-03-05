@@ -1,0 +1,18 @@
+1.1-1
+Designing disctrict. Such as for a mail-deliverying company, it has several of depots/warehouse and 
+requires an office for the corresponding depots. Finding the convex hull for that several of depots/warehouse
+can be used for planing, partition disctrict among city, state.
+
+1.1-2 
+Memory usage. Steps of computation.
+
+1.1-3
+Array.
+    Strength: 
+        1. Easy to implement.
+        2. Constant time look up if known the position.
+        3. Constant time for insert, delete element at the end of array.
+    Limitation:
+        1. Fixed size. (however can be fixed by implement a realloacte function)
+        2. O(n) time to insert, delete a particular element if not at the end of array. Limit it's flexibility.
+        3. Hard to maintain a sorted list. Thus searching element would be diffcuit.
