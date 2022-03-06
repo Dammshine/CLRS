@@ -1,0 +1,9 @@
+1.2-1
+In the application for photo, there is functions for edit, place special effect or apply fliter for photos.
+All of these consist modifying the contents of pixel which requires algorithms.
+
+1.2-2
+Roughly 44.
+
+1.2-3
+15
