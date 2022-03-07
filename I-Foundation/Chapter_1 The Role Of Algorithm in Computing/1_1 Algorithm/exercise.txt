@@ -24,3 +24,4 @@ Difference. Traversing Salesman have to go through all nodes while shortest dist
 1.1-5
 NSW's HSC ranking system. Require the best, fair solution. (at least accurate)
 Advertisement for company. Approximately best solution will do.
+

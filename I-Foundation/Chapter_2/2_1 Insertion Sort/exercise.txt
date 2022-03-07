@@ -1,0 +1,49 @@
+2.1 -1
+   .  
+31 41 59 26 41 58
+      .
+31 41 59 26 41 58
+         .
+26 31 41 59  41 58
+            .
+26 31 41 41 59 58
+               .
+26 31 41 41 58 59 
+
+2.1 -2
+for j = 2 to A.length
+    key = A[j]
+    // Insert element A[j] into the correct position
+    i = j - 1
+    while i > 0 and A[i] < key
+        A[i + 1] = A[i]
+        i = i - 1
+    A[i + 1]  = key
+
+2.1-3
+for j = 1 to A.length
+    if A[j] == key
+        return j
+return NIL
+
+Initilization:
+    We start with j = 1. The sacnned Array is thus A[NIL], which is empty array.
+    By this point. The function is behave correctly.
+Maintenance:
+    For each iteration. Function will scaned j-th element. If j-th element == key, then return position j. If the key is not a j-th position
+    the function will increment. Then, it either have A[1..j] with no marching element to the Key, or returned j.
+Termination:
+    For each iteration, the j will increment by 1. At the ened of loop, j == n. Then either it return n, if the marching element is in the end of array.
+    Or it will return NIL. As the array A[1..n] do not have marching element to the key and is the whole array.
+
+Hence algorithm is correct.
+
+2.1 -4
+Given two n-element array A and B, with each element is a n-bits int. Store the summation of element that have same index in array A and B, into same index position in array C, 
+with n-elements and n+1-bits for each elements.
+
+// Array A and B have to be same size
+for j = 1 to A.length
+    sum = A[j] + B[j]
+    c[j] = sum
+    
