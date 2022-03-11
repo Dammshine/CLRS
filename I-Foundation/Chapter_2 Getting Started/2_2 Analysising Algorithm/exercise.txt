@@ -1,0 +1,38 @@
+2.2-1
+theta(n^3)
+
+2.2-2
+for j = 1 to A.length - 1
+    
+    // Find the smallest element in subarray A[j .. n]
+    int num = A[j]
+    int index_of_lowest = j
+    int i = j + 1
+    while i <= n
+        // swap lowest number
+        if A[i] < num
+            index = i
+            num = A[i]
+        i = i + 1
+    int temp = a[j]
+    a[j] = num
+    a[index] = temp
+
+The loop invariant the loop remain is for the subarray A[1..j] will always remain sorted. As the first element is always lowest among n elements, second is always second lowest amont n elements. 
+
+Consider when j = n - 1. The first subarray A[0..n-1] stayed sorted. The A[n] is the greatest element in the list. Thus the array is sorted.
+
+The average cost in theta(n^2). For each search operation, require to find the lowest element in subarray A[j..n]. Then in average, requires [j - n] / 2.
+
+The best case cost is theta(n). When the array is sorted, each search operation is constant time. Consider a n element array, it cost c*n time, which is theta(n).
+
+Worst case is theta(n^2).
+
+2.2-3
+If the element is in the list. Average cost of searching is n / 2 operations. 
+If the element is not in the list, cost is then n operation. Which is the worst case.
+Both case is theta(n). 
+
+2.2-4
+Modify the algorithm by addding a special cases. 
+

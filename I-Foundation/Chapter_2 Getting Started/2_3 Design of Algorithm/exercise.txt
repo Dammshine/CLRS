@@ -1,0 +1,67 @@
+2.3.1
+    3 41 52 26 38 57 9 49
+        |           |
+  3 41 52 26      38 57 9 49
+      |
+3 41     52 26    38  57     9 49
+3   41     52   26    38    57     9   49
+
+3 41     26 52     38 57      9 49
+
+3 36 41 52        9 38 49 57
+
+3 9 36 38 41 49 51 57
+
+2.3 -3
+Base case n = 2
+T(2) = 2 = 2 * log2(2) = 2
+
+Assume n = 2 ^k
+for n = 2^k
+T(2^k) = 2^k*log2(2^k),
+n = 2^k*2
+T(2*2^k) = 2 * T(2^k) + 2^(k+1)
+         = 2^(k+1)*log2(2^k) + 2^(k+ 1)
+         = 2^(k+1)*log2(2^(k+1))
+
+
+2.3 -4 skip
+
+2.3 - 5
+The binary search procedue have following process.
+1. Divide
+    Just compute the position of middle index. Compare it with searching element. Takes theta(1).
+2. Conquer
+    We recursively call the function on either first half or second half. Which tribute theta(1) + T(n/2).
+3. Combine
+    There is no combine process. Hence take no time.
+
+Overall, consider binary search recursively called at most log2(n) time, as each search eliminate half elements. 
+
+2.3 - 6
+Consider for smaller case. If there is 4 elements, the insertion sort would take 4 + 3 + 2 + 1 search operation, 8 for swap operation.
+On otherhand, merge sort would called itself twice, each takes 2 operation to copy element, 2 operation to sort element and 4 operation to sort 3 elements. Which will take 4 * 2 + 8 = 16 operations. 
+However, calling function itself would have additional cost which lead to insertion better performed.
+
+In general, by solve k1n*(log(n)) < k2n^2, will reveal the minimum number when mergesort should use insertion sort. On the otherhand, this will increase the complexity for implement other case in merge-sort.
+In theory we can, however there won't be signicant performance boost. 
+
+2.3 - 7
+Algorithm :
+    // Mergesort is O(n*log(n))
+    call mergesort(A[n])
+
+    // Binary search the element, find maximum position
+    // O(log(n))
+    call binary_search(A[0..n], x), store return index in variable i
+
+
+    // O(log(n) *n)
+    for j = 0 to j = i
+        let k = x - A[j]
+        call binary_saarch(A[j..i], k), store return index in variable m
+        if m exist 
+            return TRUE
+    
+
+        
