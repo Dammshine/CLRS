@@ -1,0 +1,10 @@
+3.2-1
+Suppose f(n) and g(n) are both monotonically increase, then for n < m, 
+f(n) < f(m) and g(n) < g(m). (f+g)(n) < (f+g)(m).
+f(g(n)) < f(g(n')) for g(n') > g(n), pick n' = m, then we have f(g(n)) < f(g(m)).
+
+
+3.2-2
+c^logb(a) = a^loga(logb(a)) = a^logb(a)(logc(a)/logb(a)) = a^logc(a).
+
+3.2-4
