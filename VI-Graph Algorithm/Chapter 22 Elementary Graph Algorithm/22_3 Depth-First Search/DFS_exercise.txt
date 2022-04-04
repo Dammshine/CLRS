@@ -1,0 +1,9 @@
+22.3-1
+Directed graph (u,v)
+u    v     w                                 g                                b 
+(Before explore)
+w       All kind                 Back edge, cross edge in same tree        Cross edge
+
+g       Tree edge, forward edge     Forward edge, tree edge
+
+b       #######       

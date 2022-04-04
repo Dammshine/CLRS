@@ -1,0 +1,49 @@
+22.1-1
+Given a vertex v.
+To compute out-degree of vertex, require to search all eddges that start of given vertex. This will be stored in linked list. 
+Look up the head of list will take constant time, and search all edge start this this list will take sizeof(v.e[]) time. Since there is at most n vertices, the time should be O(v).
+
+To comput in-degree of vertex, require to search all vertices and find associated edges with given vertices. This will take at most n edges, the time should be O(e). 
+
+As e approches v^2, compute in-degree tooks v^2 time. So there will be an effiency difference if a given graph is more dense.
+
+22.1-2
+   1   2   3   4   5   6   7
+
+1  0   1   1   0   0   0   0
+
+2  0   0   0   1   1   0   0
+
+3  0   0   0   0   0   1   1
+
+4  0   0   0   0   0   0   0
+
+5  0   0   0   0   0   0   0
+
+6  0   0   0   0   0   0   0
+
+7  0   0   0   0   0   0   0
+
+22.1-3
+Adjency-list:
+    // We can assume the original adjency-list is valid
+    // So there is no need to check if an additional edge is valid
+    crete n-array N, copy the vertice.adj
+    for i = 0..n
+        for j = v.Adj[i] .. nil
+            newEdge = (d[j.distination], d[i])
+            insert newEdge in front of newEdge
+    
+    return array N
+
+Adjency-matrix:
+    // Note that the mirror image among the axis link (0,0) and (n,n) would be the definition of G^t.
+    create n * n matrix N
+    i,j = 0
+    for i = 0..n
+        for j = 0..n
+            N[i][j] = M[j][i];
+    
+    
+    return new matrix N
+

@@ -1,0 +1,120 @@
+Algorithm of BFS search
+Given a graph G(V, E), the edges of given vertice v, is adj[v].
+
+// This algorithm construct a BFS tree
+// Color represented
+//  1. Wite, undiscovered
+//  2. Gret, discovered but uninspected
+//  3. Black, discovered and inspected
+// u.d store the distance from s to u
+// u.pi store the parent of u : defined as the node discovered u
+BFS(G, s)
+    // Initialize all node to white (undiscovered)
+    for each vertex u belong G.V - { s }
+        u.color = white
+        u.d = infinity
+        u.pi = NIL
+    
+    // Discovered s
+    s.color = gret
+    s.d = 0
+    s.pi = NIL
+
+    // Create queue (include as discover process)
+    Q = empty
+    enqueue(Q, s)
+
+    while Q != empty 
+        // Inspect front element
+        u = dequeue(Q)
+        for each v belong to G.Adj[u]
+            // Disover the undiscovered vertice that are adjacent to u
+            if v.color == white
+                v.color = grey
+                v.d = u.d + 1
+                v.pi = u 
+                enqueue(v)
+        // Finish inspect u
+        u.color = black
+
+Discussion of shortest path
+Define shortest path as shortest path <= all exist path.
+
+Lemma 22.1 Let G = (V,E) be a directed or undirrected graph, let s belong to v be an arbitary vertex. Then for any edge(u,v) belong to E
+            Shortest distance(s, v) <= Shortest distance(s, u) + 1.   (1)
+
+Proof: 
+    Suppose v is reachtable from S, then there are total two cases
+        1. There exist shorter path from s to u, else than through v. Then choose this path. (1) hold.
+        2. There do not exist shorter path, or path else than through v. Choose path to v, and edge(v,u). (1) hold
+
+Lemma 22.2 Let G = (V,E) be a directed or undirrected graph, and suppose BFS is run on G from a given source vertex s belong V. Then upon termination, 
+            each vertice, v.d >= shortest path(s, v)
+
+    At first, v.d do not necessarly represent distance, so one can not chaim it have to be smaller than path, at least require explaniation.
+    From the algorithm, each vertice must have a parent node, denote u, and v.d = u.d + 1. Then, by trace parent vertice of each vertice, we can
+    draw a path from v to s, by property that each vertice must have a parent vertice. 
+
+    This path is greater or equal to the shortest path.
+
+Lemma 22.3 Suppose during the execution of BFS, the queue Q contain following vertex
+            {v1, v2,...vr}, where v1 is the head of Q and vr is the tail
+            Then, vr.d <= v1.d + 1 and vi.d < vi+1.d.
+    
+    Proof by induction.
+    At begining of BFS, there is only s in queue. Hence statement is true.
+    Assuming the above holds, by dequeue v1, v2 become head. 
+    vi.d < vi+1.d unaffected for now.
+    vr.d <= v1.d + 1 < = v2.d + 1. Hence it also hold.
+
+    Now consider 2 cases
+        1. No adjacent vertex added, then the above obviously hold.
+        2. Adjacent vertex u, added to the list.
+            u.d = v1.d + 1. And vr.d <= v1.d + 1 <= u.d. Thus vi.d < vi+1.d hold.
+            u.d = v1.d + 1 <= v2.d + 1. Thus vr.d < vi+1.d hold
+    
+Collorary 22.4
+If vi enqueue early than vj, the v1.d <= vj.d.
+
+
+
+Theorem 22.5
+BFS search always produce shortest path. 
+During the BFS search, from s, for every other node blong G(V, E) have property
+    v.d = shortest path(s, v)
+
+Prove by contradiction. Suppose there exist a node v such that
+    v.d != shortest path(s, v).
+
+By lemma 22.1, we know v.d >= shortest path(s, v), then we can deduce v.d > shortrest path(s,v).
+Vertex v have to be reachtable, else both infinity. 
+Because it is reachtable, consider the parent node of v, denote u that have preceding shortest path, discussed in lemma 22.2
+we have shortest path(s,v) = shortest path(s, u) + 1, 
+Then we have
+v.d > sd(s,v) = sd(s, u) + 1 = u.d + 1. 
+
+Then, consider the v's color when u have being dequeue.
+It either be white (undiscovered)
+    then we know v.d = u.d + 1. Contradiction.
+If v is black, 
+    then it enqueue before u, v.d <= u.d. Contradiction, discussed above, in order to contradict the theorem, v.d > sd(s, d), thus also greater than u.d + 1.
+If v is gray,
+    then it painted before dequeue u, painted by the vertex  denoted by w. And w is enqueue before u, so w.d <= u.d, and v.d = w.d + 1 <= u.d + 1.
+    Again by analysis, it have to be greater than u.d + 1. Hence contradiction/
+
+Thus, we conclude for all vertice v, after BFS(s, v), v.d is the sd(s, v). And we can obatin a shortest path from s to v.parent, and by repeat this process.
+
+                
+
+BFS tree
+Assume original graph G(V, E)
+then by BFS search, we will get 
+    G(Gpi, Epi). 
+    where Vp = {v : v.pi != Nil} && {s} // This will eliminate node not reachtable
+    Epi {v.pi, v: v belong vp}          // Include all edges that are linked
+
+Gpi is a BFT, the shortest path in this curve from s to any v will also be shortest path from s to v. 
+And abs(E) = abs(V) - 1, this is preserved from tree property. 
+
+Lemma BFS result a BFT. (No comments needed for this one)
+

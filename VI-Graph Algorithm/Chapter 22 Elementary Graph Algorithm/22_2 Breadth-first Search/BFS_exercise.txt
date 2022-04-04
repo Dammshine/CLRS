@@ -1,0 +1,19 @@
+22.2-3
+Consider if gray is removed from algorithm.
+The the process of BFS(s, v) is
+1. Initialize on s. Mark s as black
+2. Dequeue()
+    1. Inspect white cell
+    2. enqueue white cell
+    3. mark cell as black.
+
+This will work, because only uses for gray is to differentiate between inspected and discovered. However, 
+by using white and black as indicator, every vertice will only be enqueue once and dequeue once. 
+If two color is suffcient, then it only require one bit. 
+
+22.2-4
+In adjeency matrix, scan edge took O(V).
+In above cases, it have while loop that require visit each node only once, and scan the edges once per each node.
+Initialization is O(v). 
+Thus, the running time would be O(V^2).
+

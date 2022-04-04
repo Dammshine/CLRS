@@ -1,0 +1,62 @@
+In depth-first search, it is similar to BFS
+1. It also set precessor to a vertice.
+2. It will also color the vertice to ensure that each node only discover once and dequeue onece.
+
+Difference
+1. The graph depth-first search produce will be multiple trees.
+2. It have 2 distance attribute, first record when discovered and second record when  finished.
+    The vertice will be white before discovered, gray between discoverd and finsihed, and black when it finshed. 
+    Finished meaning that all valid node have being accessed.
+    The stamp, will be between 1 and 2*V, as each node will be visit once and rewind once.
+
+
+The tree, and forest property is regarding to reflect how the result of search is used. 
+
+
+Algorithm, DFS will construct a forest from the graph
+DFS(G)
+    for each vertex u belong G.V 
+        u.color = white
+        u.pi = NIL
+    time = 0
+    // This is to make sure every node (for unreachable node will be scaned)
+    // Depend of implementation, time should be shared by every node, such as using a pointer
+    for each vertex u belong G.V
+        if u.color == white 
+            DFS-VISIT(G, u)
+
+
+DFS-VISIT(G, u)
+    // Update time
+    time = time + 1
+    u.d = time
+
+    // VISIT u
+    u.color = GRAY
+    for each v belong G.Adj[u]      // explore edge (u,v)
+        // VISIT non-visited node, recursive
+        if v.color == WHITE
+            v.pi = u
+            DFS-VISIT(G, v)
+    
+    // Finish inspect u
+    u.color = black
+    time = time + 1
+    u.f = time
+
+Theorem 22_3-1 Parenthesis Theorem
+If, u,v denote two vertice have each own visit and finish point. The one of following must hold
+1. If u and v are disjointed, then neither u or v are descend of each other in the DFS forest. 
+2. If v's interval is in u's inverval, v is u's descend.
+3. Same hold, vice versa of 2
+
+
+Classification of edges
+We can define 4 edges type
+1. Tree edges are edges in the DFF. Edge (u,v) is a tree edge is v is discovered by u.
+2. Back edges, are collectin of edge connect u to v, self-loop classify as back edge.
+3. Forward edges, are those non-tree edge connecting a vertex u to descendant v in DFS.
+4. Cross edges, are all other edges. They can be usedto connect vertice that in different tree, or belong to same tree but have disctinct ancestor. (Link between same level node in tree)
+
+
+
