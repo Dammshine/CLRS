@@ -51,6 +51,10 @@ If, u,v denote two vertice have each own visit and finish point. The one of foll
 3. Same hold, vice versa of 2
 
 
+Theorem 22.9 (white-path theorem)
+In a depth-first forest, if vertex v is descendant of u, then at u.d, there exist a white path from u to v.
+
+
 Classification of edges
 We can define 4 edges type
 1. Tree edges are edges in the DFF. Edge (u,v) is a tree edge is v is discovered by u.
