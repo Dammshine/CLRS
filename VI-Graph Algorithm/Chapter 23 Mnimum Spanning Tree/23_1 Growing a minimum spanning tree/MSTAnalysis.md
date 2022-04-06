@@ -11,9 +11,13 @@ The greedy approaches to this problem can have qeudocode form
 
 > Geneic-MST(G, w)
 >   A is empty
+>
 >   while A does not form a spanning tree
+>
 >       find an edge (u,v) that is safe for A
+>
 >       A += edge(u,v)
+>
 >   return A
 >
 
