@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "tuple": "c",
-        "utility": "c"
+        "utility": "c",
+        "vector": "cpp"
     }
 }
