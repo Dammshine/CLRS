@@ -41,7 +41,10 @@ Now, we shall start to analysis the correctness.
 3. Termination. After last iteration, which would be i = 1. We will have 1 .. A.size() being heapify. Thus, we conclude the heap being build.
 
 After analysis of correctness, we shall discuss the time complexity of BUILD_MAX_HEAP(A). 
+
 Firstly, we can note that MAX_HEAPIFY(A, i) have timeplexity of at most O(log(n)), and it being called for abs(A.size() / 2 .. 1) times, which is O(n) times. And it's upper-bound would be O(n * log(n)). 
+$\lfloor f \rfloor$
+
 Then, by oberving the time complexity of MAX_HEAPIFY(A, i) correlates to it's position i (height of this position), we can further derive a tighter upperbound. By visualting a complete BST, one simple property we can ultilize is that there is at most floor(n / 2 ^ h) nodes, in a given height. And, the running time of MAX_HEAPIFY(A, i) will be h. 
 Then, the running time would be sum of h [ max_height .. 1( h * (n / 2 ^ h)) ]
                                          = n * sum of h (h / 2 ^ h )          (n is constant here )
