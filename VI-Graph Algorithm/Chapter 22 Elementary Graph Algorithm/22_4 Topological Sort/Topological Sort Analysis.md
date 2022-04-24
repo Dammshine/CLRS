@@ -1,3 +1,6 @@
+## Cycle Detection ##
+G has a cycle  <=>  G has a back edge
+
 A topological sort of a directed acyclic graph (dag). 
 For simplicity sake, I would define that a topological sort would only work for directed acylic graph. 
 1. Directed is very intuitive, which is there do not exist edge (u,v) and (v,u) at the same time. 

@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\.."
+		},
+		{
+			"name": "SSH FS - cse",
+			"uri": "ssh://cse/import/cage/2/z5359322"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"tuple": "c",
+			"utility": "c",
+			"vector": "cpp"
+		}
+	}
+}
