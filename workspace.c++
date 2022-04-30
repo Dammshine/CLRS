@@ -2,6 +2,11 @@
 #include <queue>
 using namespace std;
 
+
+int main() {
+
+}
+
 bool canFinish(int n, vector<pair<int, int>>& pre) {
     // Create adj list and count the degree
     vector<vector<int>> adj(n, vector<int>());
